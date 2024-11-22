@@ -4,7 +4,7 @@
 #include <time.h>
 #include <stdbool.h>
 
-#define SIZE 10000000 // 10 million
+// #define SIZE 10000000 // 10 million
 #define THRESHOLD 20000
 
 void q_sort(int* arr, int start_index, int end_index) {
@@ -45,10 +45,12 @@ void q_sort(int* arr, int start_index, int end_index) {
 }
 
 
-int main() {
+int main(int argc, char *argv[]) {
 
     // To measure time
     double wt1, wt2;
+
+    int SIZE = argv[1];
 
 
     int *nums = (int*)malloc(SIZE * sizeof(int));
@@ -74,9 +76,9 @@ int main() {
     free(nums);
     
     wt2 = omp_get_wtime();
-    printf( "Parallel excecution with THRESHOLD %d \n", THRESHOLD);
+    printf( "Parallel excecution with Size: %d \n", SIZE);
     printf( "Excecution time: %12.4g sec\n", wt2-wt1 );
-    printf("================================================= \n");
+    // printf("================================================= \n");
     return 0;
 }
 

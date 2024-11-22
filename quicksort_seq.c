@@ -4,7 +4,7 @@
 #include <time.h>
 #include <stdbool.h>
 
-#define SIZE 10000000 // 10 million
+// #define SIZE 10000000 // 10 million
 
 void q_sort(int* arr, int start_index, int end_index) {
     if (start_index >= end_index) {
@@ -34,7 +34,9 @@ void q_sort(int* arr, int start_index, int end_index) {
     
 }
 
-int main() {
+int main(int argc, char *argv[]) {
+
+    int SIZE = argv[1];
 
     // To measure time
     double wt1, wt2;
@@ -57,8 +59,8 @@ int main() {
     free(nums);
     
     wt2 = omp_get_wtime();
-    printf("Non-parallel excecution \n");
+    printf("Sequential excecution with Size: %d \n", SIZE);
     printf( "Excecution time: %12.4g sec\n", wt2-wt1 );
-    printf("================================================= \n");
+    // printf("================================================= \n");
     return 0;
 }
